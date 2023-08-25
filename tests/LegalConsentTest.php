@@ -1,12 +1,12 @@
 <?php
 
-namespace Maize\LegalConsent\Tests;
+namespace Dedecube\LegalConsent\Tests;
 
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
-use Maize\LegalConsent\Models\LegalConsent;
-use Maize\LegalConsent\Models\LegalDocument;
-use Maize\LegalConsent\Tests\Models\User;
+use Dedecube\LegalConsent\Models\LegalConsent;
+use Dedecube\LegalConsent\Models\LegalDocument;
+use Dedecube\LegalConsent\Tests\Models\User;
 
 class LegalConsentTest extends TestCase
 {

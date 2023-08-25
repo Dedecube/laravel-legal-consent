@@ -10,7 +10,7 @@ return [
     |
     */
 
-    'legal_document_model' => Maize\LegalConsent\Models\LegalDocument::class,
+    'legal_document_model' => Dedecube\LegalConsent\Models\LegalDocument::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -21,7 +21,7 @@ return [
     |
     */
 
-    'legal_consent_model' => Maize\LegalConsent\Models\LegalConsent::class,
+    'legal_consent_model' => Dedecube\LegalConsent\Models\LegalConsent::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -32,7 +32,7 @@ return [
     |
     */
 
-    'legal_document_finder' => Maize\LegalConsent\DefaultLegalDocumentFinder::class,
+    'legal_document_finder' => Dedecube\LegalConsent\DefaultLegalDocumentFinder::class,
 
     /*
     |--------------------------------------------------------------------------

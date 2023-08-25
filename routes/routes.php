@@ -1,7 +1,7 @@
 <?php
 
-use Maize\LegalConsent\Http\Controllers\LegalDocumentController;
-use Maize\LegalConsent\Http\Controllers\LegalConsentController;
+use Dedecube\LegalConsent\Http\Controllers\LegalDocumentController;
+use Dedecube\LegalConsent\Http\Controllers\LegalConsentController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 

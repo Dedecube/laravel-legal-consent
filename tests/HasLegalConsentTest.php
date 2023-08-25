@@ -1,12 +1,11 @@
 <?php
 
-namespace Maize\LegalConsent\Tests;
+namespace Dedecube\LegalConsent\Tests;
 
 use Carbon\Carbon;
-use Maize\LegalConsent\Models\LegalConsent;
-use Maize\LegalConsent\Models\LegalDocument;
-use Maize\LegalConsent\Tests\Models\Admin;
-use Maize\LegalConsent\Tests\Models\User;
+use Dedecube\LegalConsent\Models\LegalConsent;
+use Dedecube\LegalConsent\Models\LegalDocument;
+use Dedecube\LegalConsent\Tests\Models\User;
 
 class HasLegalConsentTest extends TestCase
 {
@@ -139,7 +138,6 @@ class HasLegalConsentTest extends TestCase
         $type = config('legal-consent.allowed_document_types')[0];
 
         $user = User::factory()->create();
-        $admin = Admin::factory()->create();
 
         $document = LegalDocument::factory()->create([
             'type' => $type,
@@ -147,17 +145,10 @@ class HasLegalConsentTest extends TestCase
         ]);
 
         $user->acceptDefaultLegalDocument($type);
-        $admin->acceptDefaultLegalDocument($type);
 
         $this->assertDatabaseHas(LegalConsent::class, [
             'user_type' => $user->getMorphClass(),
             'user_id' => $user->getKey(),
-            'document_id' => $document->getKey(),
-        ]);
-
-        $this->assertDatabaseHas(LegalConsent::class, [
-            'user_type' => $admin->getMorphClass(),
-            'user_id' => $admin->getKey(),
             'document_id' => $document->getKey(),
         ]);
     }

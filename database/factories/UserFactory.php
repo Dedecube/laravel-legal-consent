@@ -1,8 +1,8 @@
 <?php
 
-namespace Maize\LegalConsent\Database\Factories;
+namespace Dedecube\LegalConsent\Database\Factories;
 
-use Maize\LegalConsent\Tests\Models\User;
+use Dedecube\LegalConsent\Tests\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class UserFactory extends Factory

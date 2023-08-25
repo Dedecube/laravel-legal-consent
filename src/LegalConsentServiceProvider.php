@@ -1,6 +1,6 @@
 <?php
 
-namespace Maize\LegalConsent;
+namespace Dedecube\LegalConsent;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;

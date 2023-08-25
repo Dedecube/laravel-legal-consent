@@ -1,13 +1,13 @@
 <?php
 
-namespace Maize\LegalConsent\Tests;
+namespace Dedecube\LegalConsent\Tests;
 
 use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
-use Maize\LegalConsent\Listeners\AcceptLegalDocumentListener;
-use Maize\LegalConsent\Models\LegalConsent;
-use Maize\LegalConsent\Models\LegalDocument;
-use Maize\LegalConsent\Tests\Models\User;
+use Dedecube\LegalConsent\Listeners\AcceptLegalDocumentListener;
+use Dedecube\LegalConsent\Models\LegalConsent;
+use Dedecube\LegalConsent\Models\LegalDocument;
+use Dedecube\LegalConsent\Tests\Models\User;
 
 class AcceptLegalDocumentListenerTest extends TestCase
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Maize\LegalConsent\Tests\Models;
+namespace Dedecube\LegalConsent\Tests\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Maize\LegalConsent\HasLegalConsent;
+use Dedecube\LegalConsent\HasLegalConsent;
 
 class User extends Authenticatable
 {

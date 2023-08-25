@@ -1,11 +1,11 @@
 <?php
 
-namespace Maize\LegalConsent;
+namespace Dedecube\LegalConsent;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Cache;
-use Maize\LegalConsent\Exceptions\InvalidDocumentTypeException;
-use Maize\LegalConsent\Models\LegalDocument;
+use Dedecube\LegalConsent\Exceptions\InvalidDocumentTypeException;
+use Dedecube\LegalConsent\Models\LegalDocument;
 
 abstract class LegalDocumentFinder
 {

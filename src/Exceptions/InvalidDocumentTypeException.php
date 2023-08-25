@@ -1,6 +1,6 @@
 <?php
 
-namespace Maize\LegalConsent\Exceptions;
+namespace Dedecube\LegalConsent\Exceptions;
 
 use Illuminate\Http\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;

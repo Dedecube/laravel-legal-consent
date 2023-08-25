@@ -1,6 +1,6 @@
 <?php
 
-namespace Maize\LegalConsent;
+namespace Dedecube\LegalConsent;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
