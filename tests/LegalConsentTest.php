@@ -3,10 +3,10 @@
 namespace Dedecube\LegalConsent\Tests;
 
 use Carbon\Carbon;
-use Illuminate\Support\Arr;
 use Dedecube\LegalConsent\Models\LegalConsent;
 use Dedecube\LegalConsent\Models\LegalDocument;
 use Dedecube\LegalConsent\Tests\Models\User;
+use Illuminate\Support\Arr;
 
 class LegalConsentTest extends TestCase
 {

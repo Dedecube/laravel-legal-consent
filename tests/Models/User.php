@@ -2,9 +2,9 @@
 
 namespace Dedecube\LegalConsent\Tests\Models;
 
+use Dedecube\LegalConsent\HasLegalConsent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Dedecube\LegalConsent\HasLegalConsent;
 
 class User extends Authenticatable
 {

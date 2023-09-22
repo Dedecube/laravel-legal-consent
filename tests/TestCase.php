@@ -2,9 +2,9 @@
 
 namespace Dedecube\LegalConsent\Tests;
 
+use Dedecube\LegalConsent\LegalConsentServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Dedecube\LegalConsent\LegalConsentServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
