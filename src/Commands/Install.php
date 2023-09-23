@@ -2,8 +2,8 @@
 
 namespace Dedecube\LegalConsent\Commands;
 
-use Illuminate\Console\Command;
 use Dedecube\Composer\Facades\Composer;
+use Illuminate\Console\Command;
 
 use function Laravel\Prompts\confirm;
 
