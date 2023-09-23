@@ -41,6 +41,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          composer config "http-basic.nova.laravel.com" "${{ secrets.LARAVEL_NOVA_USERNAME }}" "${{ secrets.LARAVEL_NOVA_PASSWORD }}"
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "nesbot/carbon:${{ matrix.carbon }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
