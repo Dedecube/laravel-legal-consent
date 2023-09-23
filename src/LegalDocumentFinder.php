@@ -2,10 +2,10 @@
 
 namespace Dedecube\LegalConsent;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Cache;
 use Dedecube\LegalConsent\Exceptions\InvalidDocumentTypeException;
 use Dedecube\LegalConsent\Models\LegalDocument;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Cache;
 
 abstract class LegalDocumentFinder
 {

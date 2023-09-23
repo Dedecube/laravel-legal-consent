@@ -2,8 +2,8 @@
 
 namespace Dedecube\LegalConsent\Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Dedecube\LegalConsent\Models\LegalDocument;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class LegalDocumentFactory extends Factory
 {

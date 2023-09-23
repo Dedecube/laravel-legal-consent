@@ -2,9 +2,9 @@
 
 namespace Dedecube\LegalConsent;
 
+use Dedecube\LegalConsent\Models\LegalDocument;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Cache;
-use Dedecube\LegalConsent\Models\LegalDocument;
 
 trait HasLegalConsent
 {
