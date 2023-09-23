@@ -1,0 +1,9 @@
+<?php
+
+namespace App\Enums;
+
+enum LegalDocumentType: string
+{
+    case TERMS_AND_CONDITIONS = 'terms-and-conditions';
+    case PRIVACY_POLICY = 'privacy-policy';
+}

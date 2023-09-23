@@ -3,6 +3,8 @@
 namespace Dedecube\LegalConsent\Commands;
 
 use Illuminate\Console\Command;
+use Dedecube\Composer\Facades\Composer;
+
 use function Laravel\Prompts\confirm;
 
 class Install extends Command
@@ -13,11 +15,6 @@ class Install extends Command
 
     public function handle()
     {
-        if (!$this->isLaravelPromptsInstalled()) {
-            $this->error('Please install the laravel/prompts package first.');
-            return;
-        }
-
         if (confirm('Do you want to publish the legal consent config file?', true)) {
             $this->call('vendor:publish', ['--tag' => 'legal-consent-config']);
         }
@@ -30,21 +27,15 @@ class Install extends Command
             $this->call('vendor:publish', ['--tag' => 'legal-consent-enums']);
         }
 
-        if (confirm('Do you want to publish the legal consent nova resources?', true)) {
-            $this->call('vendor:publish', ['--tag' => 'legal-consent-nova-resources']);
+        if (Composer::isPackageInstalled('laravel/nova')) {
+            $this->publishNovaResources();
         }
     }
 
-    private function isLaravelPromptsInstalled(): bool
+    private function publishNovaResources()
     {
-        $composerLock = json_decode(file_get_contents(base_path('composer.lock')), true);
-
-        $packages = array_column($composerLock['packages'], 'name');
-
-        if (in_array('laravel/prompts', $packages)) {
-            return true;
+        if (confirm('Do you want to publish the legal consent nova resources?', true)) {
+            $this->call('vendor:publish', ['--tag' => 'legal-consent-nova-resources']);
         }
-
-        return false;
     }
 }
