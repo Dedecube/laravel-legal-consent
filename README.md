@@ -1,17 +1,13 @@
 <p align="center">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="/art/socialcard-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="/art/socialcard-light.png">
-  <img src="/art/socialcard-light.png" alt="Social Card of Laravel Legal Consent">
-</picture>
+  <img src="./art/cover.png" alt="Social Card of Laravel Legal Consent">
 </p>
 
 # Laravel Legal Consent
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/maize-tech/laravel-legal-consent.svg?style=flat-square)](https://packagist.org/packages/maize-tech/laravel-legal-consent)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/maize-tech/laravel-legal-consent/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/maize-tech/laravel-legal-consent/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/maize-tech/laravel-legal-consent/php-cs-fixer.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/maize-tech/laravel-legal-consent/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/maize-tech/laravel-legal-consent.svg?style=flat-square)](https://packagist.org/packages/maize-tech/laravel-legal-consent)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/dedecube/laravel-legal-consent.svg?style=flat-square)](https://packagist.org/packages/dedecube/laravel-legal-consent)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/dedecube/laravel-legal-consent/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/dedecube/laravel-legal-consent/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/dedecube/laravel-legal-consent/php-cs-fixer.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/dedecube/laravel-legal-consent/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/dedecube/laravel-legal-consent.svg?style=flat-square)](https://packagist.org/packages/dedecube/laravel-legal-consent)
 
 Easily integrate legal documents (like privacy policies, terms of use, etc.) to your application.
 
@@ -20,7 +16,7 @@ Easily integrate legal documents (like privacy policies, terms of use, etc.) to 
 You can install the package via composer:
 
 ```bash
-composer require maize-tech/laravel-legal-consent
+composer require dedecube/laravel-legal-consent
 ```
 
 You can publish and run the migrations with:
@@ -35,125 +31,15 @@ You can publish the config file with:
 php artisan vendor:publish --tag="legal-consent-config"
 ```
 
-This is the content of the published config file:
-
-```php
-return [
-    /*
-    |--------------------------------------------------------------------------
-    | Legal document model
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify the fully qualified class name of the legal document model.
-    |
-    */
-
-    'legal_document_model' => Maize\LegalConsent\Models\LegalDocument::class,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Legal consent model
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify the fully qualified class name of the legal consent model.
-    |
-    */
-
-    'legal_consent_model' => Maize\LegalConsent\Models\LegalConsent::class,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Legal document finder
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify the fully qualified class name of the legal document finder class.
-    |
-    */
-
-    'legal_document_finder' => Maize\LegalConsent\DefaultLegalDocumentFinder::class,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Route configurations
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify whether routes should be enabled or not.
-    | You can also customize the routes prefix and middlewares.
-    |
-    */
-
-    'routes' => [
-        'enabled' => true,
-        'prefix' => 'legal',
-        'name' => 'legal',
-        'middleware' => ['api'],
-        'endpoints' => [
-            'show' => [
-                'middleware' => [],
-            ],
-            'consent' => [
-                'middleware' => ['auth:api'],
-            ],
-        ],
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Allowed document types
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify the list of accepted legal document types
-    | for all requests.
-    |
-    */
-
-    'allowed_document_types' => [
-        //
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Allowed acceptable values
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify the list of accepted values for each legal document
-    | consent request.
-    |
-    */
-
-    'allowed_acceptable_values' => [
-        'yes',
-        'on',
-        '1',
-        1,
-        true,
-        'true',
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Cache
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify the amount of time, in seconds, where each legal
-    | document is cached to avoid multiple database queries.
-    |
-    */
-
-    'cache' => [
-        'document_ttl' => 3600,
-        'document_user_ttl' => 3600,
-    ],
-];
-```
+[See config file](./config/legal-consent.php)
 
 ## Usage
 
 ### Basic
 
-To use the package, add the `Maize\LegalConsent\HasLegalConsent` trait to the all Authenticatable models you want to handle.
+To use the package, add the `Dedecube\LegalConsent\HasLegalConsent` trait to the all Authenticatable models you want to handle.
 
-Here's an example including the `HasLegalConsent` trait to both User and Admin models:
+Here's an example including the `HasLegalConsent` trait to User :
 
 ``` php
 <?php
@@ -161,37 +47,13 @@ Here's an example including the `HasLegalConsent` trait to both User and Admin m
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Maize\LegalConsent\HasLegalConsent;
+use Dedecube\LegalConsent\HasLegalConsent;
 
 class User extends Authenticatable
 {
     use HasLegalConsent;
 
-    protected $fillable = [
-        'fist_name',
-        'last_name',
-        'email',
-    ];
-}
-```
-
-``` php
-<?php
-
-namespace App\Models;
-
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Maize\LegalConsent\HasLegalConsent;
-
-class Admin extends Authenticatable
-{
-    use HasLegalConsent;
-
-    protected $fillable = [
-        'fist_name',
-        'last_name',
-        'email',
-    ];
+    // 
 }
 ```
 
@@ -264,7 +126,7 @@ This can be useful, for example, when your application handles the registration 
 In this case, all you should do is add the listener to the `Registered` event in `EventServiceProvider`:
 
 ``` php
-use Maize\LegalConsent\Listeners\AcceptLegalDocumentListener;
+use Dedecube\LegalConsent\Listeners\AcceptLegalDocumentListener;
 
 /**
  * The event listener mappings for the application.
@@ -291,14 +153,15 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/maize-tech/.github/blob/main/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/dedecube/.github/blob/main/CONTRIBUTING.md) for details.
 
 ## Security Vulnerabilities
 
-Please review [our security policy](https://github.com/maize-tech/.github/security/policy) on how to report security vulnerabilities.
+Please review [our security policy](https://github.com/dedecube/.github/security/policy) on how to report security vulnerabilities.
 
 ## Credits
 
+- [Daniele Tulone](https://github.com/danieletulone)
 - [Enrico De Lazzari](https://github.com/enricodelazzari)
 - [All Contributors](../../contributors)
 

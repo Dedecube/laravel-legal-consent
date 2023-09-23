@@ -1,9 +1,9 @@
 <?php
 
-namespace Maize\LegalConsent\Database\Factories;
+namespace Dedecube\LegalConsent\Database\Factories;
 
+use Dedecube\LegalConsent\Models\LegalDocument;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Maize\LegalConsent\Models\LegalDocument;
 
 class LegalDocumentFactory extends Factory
 {

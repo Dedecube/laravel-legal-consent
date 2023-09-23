@@ -1,10 +1,10 @@
 <?php
 
-namespace Maize\LegalConsent\Tests;
+namespace Dedecube\LegalConsent\Tests;
 
 use Carbon\Carbon;
+use Dedecube\LegalConsent\Models\LegalDocument;
 use Illuminate\Support\Arr;
-use Maize\LegalConsent\Models\LegalDocument;
 
 class LegalDocumentTest extends TestCase
 {
@@ -142,12 +142,12 @@ class LegalDocumentTest extends TestCase
 
         $route1 = $this->getRouteByPartialName(
             'documents.show',
-            [ 'type' => $doc1->type ]
+            ['type' => $doc1->type]
         );
 
         $route2 = $this->getRouteByPartialName(
             'documents.show',
-            [ 'type' => $doc2->type ]
+            ['type' => $doc2->type]
         );
 
         $this

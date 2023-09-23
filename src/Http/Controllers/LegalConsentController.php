@@ -1,10 +1,10 @@
 <?php
 
-namespace Maize\LegalConsent\Http\Controllers;
+namespace Dedecube\LegalConsent\Http\Controllers;
 
+use Dedecube\LegalConsent\Models\LegalDocument;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Maize\LegalConsent\Models\LegalDocument;
 
 class LegalConsentController extends Controller
 {

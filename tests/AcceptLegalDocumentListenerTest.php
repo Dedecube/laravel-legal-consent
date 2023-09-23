@@ -1,13 +1,13 @@
 <?php
 
-namespace Maize\LegalConsent\Tests;
+namespace Dedecube\LegalConsent\Tests;
 
 use Carbon\Carbon;
+use Dedecube\LegalConsent\Listeners\AcceptLegalDocumentListener;
+use Dedecube\LegalConsent\Models\LegalConsent;
+use Dedecube\LegalConsent\Models\LegalDocument;
+use Dedecube\LegalConsent\Tests\Models\User;
 use Illuminate\Auth\Events\Registered;
-use Maize\LegalConsent\Listeners\AcceptLegalDocumentListener;
-use Maize\LegalConsent\Models\LegalConsent;
-use Maize\LegalConsent\Models\LegalDocument;
-use Maize\LegalConsent\Tests\Models\User;
 
 class AcceptLegalDocumentListenerTest extends TestCase
 {
@@ -112,7 +112,8 @@ class AcceptLegalDocumentListenerTest extends TestCase
     /** @test */
     public function ignore_event_if_not_have_user_setted()
     {
-        $event = new class () {
+        $event = new class()
+        {
         };
 
         $listener = new AcceptLegalDocumentListener();

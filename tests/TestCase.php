@@ -1,10 +1,10 @@
 <?php
 
-namespace Maize\LegalConsent\Tests;
+namespace Dedecube\LegalConsent\Tests;
 
+use Dedecube\LegalConsent\LegalConsentServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Maize\LegalConsent\LegalConsentServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -16,7 +16,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Maize\\LegalConsent\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Dedecube\\LegalConsent\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
@@ -55,9 +55,6 @@ class TestCase extends Orchestra
 
         include_once __DIR__.'/../database/migrations/create_users_table.php.stub';
         (new \CreateUsersTable())->up();
-
-        include_once __DIR__.'/../database/migrations/create_admins_table.php.stub';
-        (new \CreateAdminsTable())->up();
 
         include_once __DIR__.'/../database/migrations/create_legal_consent_tables.php.stub';
         (new \CreateLegalConsentTables())->up();

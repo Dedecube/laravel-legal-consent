@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Nova\Resources;
+
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Resource;
+
+class LegalDocument extends Resource
+{
+    public static $model = \Dedecube\LegalConsent\Models\LegalDocument::class;
+
+    public function fields(NovaRequest $request)
+    {
+        return [
+            ID::make(__('ID'), 'id')
+                ->sortable(),
+
+            Text::make(__('Type'), 'type')
+                ->sortable(),
+
+            Markdown::make(__('body'), 'body')
+                ->hideFromIndex(),
+
+            Boolean::make(__('Published At'), 'published_at')
+                ->sortable()
+                ->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
+                    if ($request->{$attribute}) {
+                        $model->{$attribute} = now();
+
+                        return;
+                    }
+
+                    $model->{$attribute} = null;
+                })
+        ];
+    }
+}

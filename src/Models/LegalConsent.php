@@ -1,6 +1,6 @@
 <?php
 
-namespace Maize\LegalConsent\Models;
+namespace Dedecube\LegalConsent\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\Pivot;

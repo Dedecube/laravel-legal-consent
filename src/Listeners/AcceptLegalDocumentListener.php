@@ -1,6 +1,6 @@
 <?php
 
-namespace Maize\LegalConsent\Listeners;
+namespace Dedecube\LegalConsent\Listeners;
 
 class AcceptLegalDocumentListener
 {
