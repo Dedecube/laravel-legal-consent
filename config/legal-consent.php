@@ -36,6 +36,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Legal document resource
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the fully qualified class name of the legal document resource class.
+    |
+    */
+
+    'legal_document_resource' => Dedecube\LegalConsent\Http\Resources\LegalDocumentResource::class,
+
+    /*
+    |--------------------------------------------------------------------------
     | Route configurations
     |--------------------------------------------------------------------------
     |
