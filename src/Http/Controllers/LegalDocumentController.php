@@ -12,8 +12,12 @@ class LegalDocumentController extends Controller
         $finderClass = config('legal-consent.legal_document_finder');
         $document = app($finderClass)->findForType($type, true);
 
+        /** @var class-string */
         $resourceClass = config('legal-consent.legal_document_resource');
 
-        return new $resourceClass($document);
+        /** @var \Illuminate\Http\Resources\Json\JsonResource */
+        $resource = new $resourceClass($document);
+
+        return $resource;
     }
 }
